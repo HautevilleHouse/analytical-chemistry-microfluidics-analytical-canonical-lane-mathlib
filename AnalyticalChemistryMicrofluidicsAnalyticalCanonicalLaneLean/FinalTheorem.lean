@@ -1,0 +1,20 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.AnalyticalChemistryMicrofluidicsAnalyticalCanonicalLaneLean.NavierStokesBridge
+import HautevilleHouse.AnalyticalChemistryMicrofluidicsAnalyticalCanonicalLaneLean.EulerFlowClosure
+import HautevilleHouse.AnalyticalChemistryMicrofluidicsAnalyticalCanonicalLaneLean.TurbulenceScalingLayer
+import HautevilleHouse.AnalyticalChemistryMicrofluidicsAnalyticalCanonicalLaneLean.VortexDynamicsCertificate
+
+namespace HautevilleHouse
+namespace AnalyticalChemistryMicrofluidicsAnalyticalCanonicalLaneLean
+
+def ConstrainedMicrofluidicsClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A ∧ primitiveTurbulenceScalingExponent.exponentsValidated ∧ primitiveVortexTubeCertificate.dynamicsValidated
+
+theorem constrained_microfluidics_endgame (A : AdmissibleClass) :
+    ConstrainedMicrofluidicsClosure A := by
+  apply And.intro (bridge_from_admissible_class A)
+  apply And.intro (gate_from_admissible_class A)
+  apply And.intro rfl rfl
+
+end AnalyticalChemistryMicrofluidicsAnalyticalCanonicalLaneLean
+end HautevilleHouse
